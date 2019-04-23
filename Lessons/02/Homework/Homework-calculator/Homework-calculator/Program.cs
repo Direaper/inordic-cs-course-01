@@ -10,46 +10,46 @@ namespace Homework_calculator
 	{
         static void Main(string[] args)
         {
-            for (; ; )                                                          //Цикл для возвращения в начало программы
+            for (; ; )                                                          
             {
                 Console.WriteLine($"Добро пожаловать в программу Калькулятор. Введите первое число"); 
-                double a = Convert.ToDouble(Console.ReadLine());                          // вводим первое число
-                Console.WriteLine();                                  // Перевод строки. Да-да.. я знаю, что это индуский код, но я не успел нагуглить как ставить пустую строку
+                double pervoeChislo = Convert.ToDouble(Console.ReadLine());                          
+                Console.WriteLine();                                  
                 Console.WriteLine($"Введите второе число");
-                double b = Convert.ToDouble(Console.ReadLine());                         // вводим второе число
-                Console.WriteLine();                                 // Опять перевод строки
-                Console.WriteLine($"Отлично! Вы ввели {a} и {b}. Выберете операцию: 1 = плюс, 2 = минус, 3 = деление, 4 = умножение, 5 = остаток от деления, 6 = возведение в степень."); 
-                int c = Convert.ToInt32(Console.ReadLine());            //пользователь вводит значение, для выбора операции
-                                                                        //Далее идет индусский код, но он работает
-                if (c == 1)                                             //Если переменная С = 1 то идет сложение
+                double vtoroeChislo = Convert.ToDouble(Console.ReadLine());                         
+                Console.WriteLine();                                 
+                Console.WriteLine($"Отлично! Вы ввели {pervoeChislo} и {vtoroeChislo}. Выберете операцию: 1 = плюс, 2 = минус, 3 = деление, 4 = умножение, 5 = остаток от деления, 6 = возведение в степень."); 
+                int operacia = Convert.ToInt32(Console.ReadLine());            
+                                                                        
+                if (operacia == 1)                                             
                 {
-                    Console.WriteLine(a + b);
+                    Console.WriteLine(pervoeChislo + vtoroeChislo);
                 }
-                if (c == 2)                                             //Если переменная С = 2 то идет вычитание
+                if (operacia == 2)                                            
                 {
-                    Console.WriteLine(a - b);                           
-                }
-
-                if (c == 3)                                             //Если переменная С = 3 то идет деление
-                {
-                    Console.WriteLine(a / b);
-                }
-                if (c == 4)                                            //Если переменная С = 4 то идет умножение
-                {
-                    Console.WriteLine(a * b);
+                    Console.WriteLine(pervoeChislo - vtoroeChislo);                           
                 }
 
-                if (c == 5)                                           ////Если переменная С = 5 то идет остаток от деления
+                if (operacia == 3)                                             
                 {
-                    double n = a % b;
-                    Console.WriteLine($"{n}");
+                    Console.WriteLine(pervoeChislo / vtoroeChislo);
+                }
+                if (operacia == 4)                                            
+                {
+                    Console.WriteLine(pervoeChislo * vtoroeChislo);
                 }
 
-                if (c == 6)                                         //Если переменная С = 6, то первое число возводиться в степень равную второму числу
+                if (operacia == 5)                                           
+                {
+                    double ostatok = pervoeChislo % vtoroeChislo;
+                    Console.WriteLine($"{ostatok}");
+                }
+
+                if (operacia == 6)                                         
                 {
 
-                    double v = Math.Pow(a, b);
-                    Console.WriteLine(v);
+                    double stepen = Math.Pow(pervoeChislo, vtoroeChislo);
+                    Console.WriteLine(stepen);
                 }
 
            
