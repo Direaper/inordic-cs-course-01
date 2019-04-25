@@ -26,8 +26,8 @@ namespace ConsoleApp1
 
             for (int i = 0; i < 3; i++)                                                 //Перебор массива
             {
-                int n = 4 + Convert.ToInt32(DataBase[1, i]);                            //Объявляется переменная n, которой выдано значение отковертированного из 2 массива значения + 4
-                Console.WriteLine($"Итак, человеку {DataBase[0, i]} через четыре года будет: {n}.");        //вывод
+                int numberFour = 4 + Convert.ToInt32(DataBase[1, i]);                            //Объявляется переменная n, которой выдано значение отковертированного из 2 массива значения + 4
+                Console.WriteLine($"Итак, человеку {DataBase[0, i]} через четыре года будет: {numberFour}.");        //вывод
             }
 
             Console.WriteLine("Completed.");
