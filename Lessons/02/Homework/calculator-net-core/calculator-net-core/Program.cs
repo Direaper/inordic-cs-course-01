@@ -13,43 +13,43 @@ namespace Homework_calculator
             for (; ; )
             {
                 Console.WriteLine($"Добро пожаловать в программу Калькулятор. Введите первое число");
-                double pervoeChislo = Convert.ToDouble(Console.ReadLine());
+                double firstNumber = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine();
                 Console.WriteLine($"Введите второе число");
-                double vtoroeChislo = Convert.ToDouble(Console.ReadLine());
+                double secondNubmer = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine();
-                Console.WriteLine($"Отлично! Вы ввели {pervoeChislo} и {vtoroeChislo}. Выберете операцию: 1 = плюс, 2 = минус, 3 = деление, 4 = умножение, 5 = остаток от деления, 6 = возведение в степень.");
-                int operacia = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"Отлично! Вы ввели {firstNumber} и {secondNubmer}. Выберете операцию: 1 = плюс, 2 = минус, 3 = деление, 4 = умножение, 5 = остаток от деления, 6 = возведение в степень.");
+                int operation = Convert.ToInt32(Console.ReadLine());
 
-                if (operacia == 1)
+                if (operation == 1)
                 {
-                    Console.WriteLine(pervoeChislo + vtoroeChislo);
+                    Console.WriteLine(firstNumber + secondNubmer);
                 }
-                if (operacia == 2)
+                if (operation == 2)
                 {
-                    Console.WriteLine(pervoeChislo - vtoroeChislo);
-                }
-
-                if (operacia == 3)
-                {
-                    Console.WriteLine(pervoeChislo / vtoroeChislo);
-                }
-                if (operacia == 4)
-                {
-                    Console.WriteLine(pervoeChislo * vtoroeChislo);
+                    Console.WriteLine(firstNumber - secondNubmer);
                 }
 
-                if (operacia == 5)
+                if (operation == 3)
                 {
-                    double ostatok = pervoeChislo % vtoroeChislo;
-                    Console.WriteLine($"{ostatok}");
+                    Console.WriteLine(firstNumber / secondNubmer);
+                }
+                if (operation == 4)
+                {
+                    Console.WriteLine(firstNumber * secondNubmer);
                 }
 
-                if (operacia == 6)
+                if (operation == 5)
+                {
+                    double last = firstNumber % secondNubmer;
+                    Console.WriteLine($"{last}");
+                }
+
+                if (operation == 6)
                 {
 
-                    double stepen = Math.Pow(pervoeChislo, vtoroeChislo);
-                    Console.WriteLine(stepen);
+                    double extent = Math.Pow(firstNumber, secondNubmer);
+                    Console.WriteLine(extent);
                 }
 
 
