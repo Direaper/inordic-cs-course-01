@@ -8,30 +8,43 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)                                                 //Комменты я оставлю, так как мне ещё тяжело разобраться с циклами
+        static void Main(string[] args)
         {
-            object[,] DataBase = new object[2, 3] { { 0, 0, 0, }, { 0, 0, 0 } };            //Двумерный массив с 3 элеметами
 
-            for (int i = 0; i < 3; i++)                                                 //Перебор массива, ввод имени людей
+            string[] names = new string[] { "0", "0", "0" };
+
+
+            for (int i = 0; i < names.Length; i++)
             {
                 Console.WriteLine($"Наберите имя {i} человека");
-                DataBase[0, i] = Console.ReadLine();
+                names[i] = Console.ReadLine();
             }
 
-            for (int i = 0; i < 3; i++)                                                 //Перебор массива, ввод возраста
+            int[] ages = new int[] { 0, 0, 0 };
+
+            for (int i = 0; i < names.Length; i++)
             {
                 Console.WriteLine($"Наберите возраст {i} человека");
-                DataBase[1, i] = Console.ReadLine();
+                ages[i] = Convert.ToInt32(Console.ReadLine());
+
             }
 
-            for (int i = 0; i < 3; i++)                                                 //Перебор массива
+            int[] ageFour = new int[] { ages[0], ages[1], ages[2] };
+
+            for (int i = 0; i < ageFour.Length; i++)
             {
-                int numberFour = 4 + Convert.ToInt32(DataBase[1, i]);                            //Объявляется переменная n, которой выдано значение отковертированного из 2 массива значения + 4
-                Console.WriteLine($"Итак, человеку {DataBase[0, i]} через четыре года будет: {numberFour}.");        //вывод
+                ages[i] = ageFour[i] + 4;
             }
 
-            Console.WriteLine("Completed.");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Person: {names[i]} age: {ages[i]}");
+            }
+
             Console.ReadKey();
         }
+
     }
 }
+
+
