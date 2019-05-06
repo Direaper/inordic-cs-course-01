@@ -4,7 +4,7 @@ namespace Figures
 {
     class Program
     {
-        enum figures
+        enum Figures
         {
             rectangle = 1,
             triagle, 
@@ -12,7 +12,7 @@ namespace Figures
         }
         static void Main(string[] args)
         {
-            var figureArray = (figures[])Enum.GetValues(typeof(figures));
+            var figureArray = (Figures[])Enum.GetValues(typeof(Figures));
             Console.Write($"Please, choose figure:  ");
 
             for (var i = 0; i < figureArray.Length; i++)
@@ -23,7 +23,7 @@ namespace Figures
             try
             {
                 var input = Console.ReadLine();
-                var getValue = (figures)Enum.Parse(typeof(figures), input);
+                var getValue = (Figures)Enum.Parse(typeof(Figures), input);
                 Console.WriteLine($"you choose:  {getValue}");
 
                 if ((int)getValue == 1)

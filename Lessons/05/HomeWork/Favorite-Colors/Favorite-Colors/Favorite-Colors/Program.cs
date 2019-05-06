@@ -19,42 +19,45 @@ namespace Favorite_Colors
         }
         static void Main(string[] args)
         {
-            var pallet = Colors.Red | Colors.Orange | Colors.Yellow | Colors.Green | Colors.Blue | Colors.Violet | Colors.Black | Colors.White;
-
-            Console.WriteLine($"Please, enter you favorite colors: \n ");
-
-            for (var i = 0; i<16 ; i++)
+            var Pallet = Colors.Red | Colors.Orange | Colors.Yellow | Colors.Green | Colors.Blue | Colors.Violet | Colors.Black | Colors.White;
+            var colorArray = (Colors[])Enum.GetValues(typeof(Colors));
+            Console.WriteLine($"Please, enter you favorite colors: ");
+       
+            for (var i = 1; i < colorArray.Length; i++)
             {
-                var value = 0x1 << i;
-                if ((((short)pallet)& value)== value)
-                {
-                    Console.Write($"{(Colors)value}  ");
-                }
+                Console.WriteLine($"{colorArray[i]}  ");
             }
+        
 
             Console.Write($"\n");
 
             var favColors = Colors.None;
             var unFavColors = Colors.None;
-            try
-            {
+          
                 for (var i = 1; i < 5; i++)
+                {
+                try
                 {
                     Console.WriteLine($"\nChoose {i} color");
                     var input = Console.ReadLine();
                     var getValue = (Colors)Enum.Parse(typeof(Colors), input);
                     favColors = favColors | getValue;
-                    unFavColors = favColors ^ pallet;
                 }
-            }
-            catch (SystemException)
-            {
-                Console.WriteLine($"You enter wrong value!");
-            }
 
+                catch (System.ArgumentException)
+                {
+                    Console.WriteLine($"You enter wrong value!");
+                }
+
+            }
+            
+         
+            unFavColors = favColors ^ Pallet;
             Console.WriteLine($"You favorite colors: {favColors}  ");
             Console.WriteLine($"You don't like this colors: {unFavColors}  ");
-           Console.ReadKey();
+            Console.ReadKey();
+        }
+
         }
     }
-}
+
