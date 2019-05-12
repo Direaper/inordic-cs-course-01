@@ -6,14 +6,14 @@ namespace Massive_Cycle
     {
         static void Main(string[] args)
         {
-            try
-            {
+
+
 
                 var marks = new[]
 {
             new [] { 2, 3, 3, 2, 3},            // Monday (it was a good weekend :)
             new [] { 2, 4, 5, 3},               // Tuesday (anyway better than Monday)
-            //null,                               // Wednesday (felt sick, stayed at home :( )
+            null,                               // Wednesday (felt sick, stayed at home :( )
             new [] { 5, 5, 5, 5},               // Thursday (God mode :)
             new [] { 4 }                        // Friday (a very short day)
 };
@@ -30,15 +30,12 @@ namespace Massive_Cycle
                     }
                     Console.WriteLine($"The average mark for day {i}: {sum / days.Length}");
                     sum = 0;
-
-                }
-
+                    if (days != null) { Console.WriteLine("N/A"); continue; }
             }
-           catch(NullReferenceException)
-            {
-                Console.WriteLine("oops");
-                
-            }
+
+
+
+
             Console.ReadKey();
             
         }
