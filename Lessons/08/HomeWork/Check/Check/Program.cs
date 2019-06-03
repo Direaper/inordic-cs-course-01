@@ -49,7 +49,7 @@ namespace Check
                     }
                 }
 
-                if ((value|value2|value3) == 0)
+                if ((value | value2 | value3) == 0)
                 {
                     Console.WriteLine("true");
                 }
