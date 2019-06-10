@@ -29,13 +29,9 @@ namespace WakeUp
             AlarmMessage = alarmMessage;
         }
 
-        public string WriteProperties()
+        public virtual string WriteProperties()
         {
-             return $"Сообщение:{AlarmMessage}, Дата будильника: {AlarmDate}, Текущее время: {TimeToAlarm}, Просрочено ли событие: {IsOutdated}"; 
+             return $"Сообщение:{AlarmMessage}\n Дата будильника: {AlarmDate}\n Текущее время: {TimeToAlarm}\n Просрочено ли событие: {IsOutdated}\n Тип:{GetType()}"; 
         }
-
- 
-
     }
-
 }
