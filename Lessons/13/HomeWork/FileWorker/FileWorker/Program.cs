@@ -2,54 +2,11 @@
 
 namespace FileWorker
 {
-    interface ILogWriter
+    public class MultipleLogWriter : AbstractLogWriter
     {
-        void LogInfo(string message);
-        void LogWarning(string message);        void LogError(string message); 
-    }
-
-    class FileLogWriter : ILogWriter
-    {
-        public FileLogWriter(string LogInfo , string LogWarning, string LogError) 
+        public MultipleLogWriter(ConsoleLogWriter mes1, FileLogWriter mes2)
         {
-
-        }
-         public void LogInfo(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
-        }
-
-        public void LogWarning(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
-        }
-
-        public void LogError(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
-        }
-    }
-
-
-   public class ConsoleLogWriter : ILogWriter
-    {
-        public ConsoleLogWriter(string message)
-        {
-             
-        }
-        public void LogInfo(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
-        }
-
-        public void LogWarning(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
-        }
-
-        public void LogError(string message)
-        {
-            Console.WriteLine($"{DateTimeOffset.Now} \n {message.GetType()}\n {message}");
+           
         }
     }
 
@@ -58,10 +15,19 @@ namespace FileWorker
     {
         static void Main(string[] args)
         {
+            var mes2 = new FileLogWriter("info");
+            mes2.LogInfo("message213");
             var mes = new ConsoleLogWriter("LOL");
             mes.LogInfo("ALARM");
+             
 
-            Console.WriteLine(mes);
+             
+            
+
+
+            Console.WriteLine();
+            Console.ReadKey();
+
         }
     }
 }
