@@ -2,25 +2,26 @@
 
 namespace FileWorker
 {
-    public class ConsoleLogWriter : AbstractLogWriter
+    public class ConsoleLogWriter : ILogWriter
     {
-        public ConsoleLogWriter(string message)
+        private void Log(LogLevel level, string message)
         {
-             
-        }
-        public override void LogInfo(string message)
-        {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
+            Console.WriteLine("{0:yyyy-MM-ddThh:mm:ss}+0000\t{1}\t{2}", DateTime.UtcNow, level, message);
         }
 
-        public override void LogWarning(string message)
+        public void LogInfo(string message)
         {
-            Console.WriteLine($"{DateTime.Now} \n {message.GetType()}\n {message}");
+            Log(LogLevel.Info, message);
         }
 
-        public override void LogError(string message)
+        public void LogWarning(string message)
         {
-            Console.WriteLine($"{DateTimeOffset.Now} \n {message.GetType()}\n {message}");
+            Log(LogLevel.Warning, message);
+        }
+
+        public void LogError(string message)
+        {
+            Log(LogLevel.Error, message);
         }
     }
 }
