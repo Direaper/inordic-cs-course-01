@@ -1,6 +1,9 @@
-﻿namespace FileWorker
+﻿using System;
+using System.IO;
+
+namespace FileWorker
 {
-  public  class FileLogWriter : ILogWriter
+  public  class FileLogWriter : AbstractLogWriter
     {
         private readonly string _filename;
         public FileLogWriter(string filename)
@@ -8,20 +11,12 @@
             _filename = filename;
         }
 
-        public void LogInfo(string message)
+        protected override void WriteLogMessage(string message)
         {
-
+            File.AppendAllText(_filename, message);
         }
-
-        public void LogWarning(string message)
-        {
-
-        }
-
-        public void LogError(string message)
-        {
-
-        }
- 
     }
+         
 }
+
+ 

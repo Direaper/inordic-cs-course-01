@@ -6,47 +6,26 @@ namespace FileWorker
 {
     public abstract class AbstractLogWriter : ILogWriter
     {
-        public virtual void LogInfo(string message)
+        public void LogInfo(string message)
         {
-            var text = $"{DateTime.Now} \n {message.GetType()}\n {message}";
-
-
-            using (FileStream fstream = new FileStream(@"C:\log\log.txt", FileMode.OpenOrCreate))
-            {
-
-                byte[] input = Encoding.Default.GetBytes(text);
-                fstream.Write(input, 0, text.Length);
-
-            }
+            Log(LogLevel.Info, message);
         }
 
-        public virtual void LogWarning(string message)
+        public void LogWarning(string message)
         {
-            var text = $"{DateTime.Now} \n {message.GetType()}\n {message}";
-
-
-            using (FileStream fstream = new FileStream(@"C:\log\log.txt", FileMode.OpenOrCreate))
-            {
-
-                byte[] input = Encoding.Default.GetBytes(text);
-                fstream.Write(input, 0, text.Length);
-
-            }
+            Log(LogLevel.Warning, message);
         }
 
-        public virtual void LogError(string message)
+        public void LogError(string message)
         {
-            var text = $"{DateTime.Now} \n {message.GetType()}\n {message}";
-
-
-            using (FileStream fstream = new FileStream(@"C:\log\log.txt", FileMode.OpenOrCreate))
-            {
-
-                byte[] input = Encoding.Default.GetBytes(text);
-                fstream.Write(input, 0, text.Length);
-
-            }
+            Log(LogLevel.Error, message);
         }
 
+        private void Log(LogLevel level, string message)
+        {
+            WriteLogMessage($"{DateTime.UtcNow:yyyy-MM-ddThh:mm:ss}+0000\t{level}\t{message} \n");
+
+        }
+        protected abstract void WriteLogMessage(string message);
     }   
 }

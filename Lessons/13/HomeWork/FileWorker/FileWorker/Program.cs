@@ -2,30 +2,21 @@
 
 namespace FileWorker
 {
-    public class MultipleLogWriter : AbstractLogWriter
-    {
-        public MultipleLogWriter(ConsoleLogWriter mes1, FileLogWriter mes2)
-        {
-           
-        }
-    }
 
 
     class Program
     {
         static void Main(string[] args)
         {
-            var mes2 = new FileLogWriter("info");
-            mes2.LogInfo("message213");
-            var mes = new ConsoleLogWriter("LOL");
-            mes.LogInfo("ALARM");
-             
+            var logger = new MultipleLogWriter(
+                new ConsoleLogWriter(),
+            new FileLogWriter("C:\\log\\file.log")
+            );
 
-             
-            
+            logger.LogInfo("INFO MESSAGE");
+            logger.LogWarning("WARNING MESSAGE");
+            logger.LogError("ERROR MESSAGE");
 
-
-            Console.WriteLine();
             Console.ReadKey();
 
         }
