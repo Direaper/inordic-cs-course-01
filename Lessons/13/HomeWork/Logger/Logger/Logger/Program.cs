@@ -1,21 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Logger
 {
-
-    //class FileLogWriter : BaseLogWriter
-    //{
-
-    //}
 
     class Program
     {
 
         static void Main(string[] args)
         {
-            ConsoleLogWriter lw = new ConsoleLogWriter();
-            lw.LogError("test");
-            Console.ReadKey();
+            var clw = new ConsoleLogWriter();
+            //clw.LogInfo("Test Information message");
+
+            var flw = new FileLogWriter(@"C:\Users\jimac\Desktop\log.txt");
+            //flw.LogInfo("Test information message");
+
+            var mlw = new MultipleLogWriter(new List<ILogWriter> {clw, flw });
+            clw.LogInfo("Test info mess");
+            flw.LogInfo("Test info mess");
+
+            flw.Dispose();
+
         }
     }
 }

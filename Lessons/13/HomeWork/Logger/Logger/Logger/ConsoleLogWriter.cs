@@ -4,9 +4,14 @@ namespace Logger
 {
     class ConsoleLogWriter : BaseLogWriter
     {
-        protected override void LogSingleRecord(string message)
+        public override void Dispose()
         {
-            Console.WriteLine(message);
+         
+        }
+
+        public override void LogSingleRecord(LogMessageType logMessageType, string message)
+        {
+            Console.WriteLine(GetFormatedMessage(logMessageType, message));
         }
     }
 }
