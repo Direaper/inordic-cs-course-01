@@ -9,7 +9,7 @@ namespace Logger
 
         private StreamWriter _streamWriter;
 
-        public FileLogWriter(string fileName = "log.txt")
+        public FileLogWriter(string fileName = "C:\\Users\\jimac\\Desktop\\log.txt")
         {
 
             _streamWriter = new StreamWriter(

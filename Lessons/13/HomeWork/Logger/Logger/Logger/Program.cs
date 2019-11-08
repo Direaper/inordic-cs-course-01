@@ -18,7 +18,8 @@ namespace Logger
             var mlw = new MultipleLogWriter(new List<ILogWriter> {clw, flw });
             clw.LogInfo("Test info mess");
             flw.LogInfo("Test info mess");
-
+            mlw.LogInfo("testsdasd");
+            mlw.Dispose();
             flw.Dispose();
 
         }

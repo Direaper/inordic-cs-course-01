@@ -9,23 +9,17 @@ namespace Logger
 
         static void Main(string[] args)
         {
-             var clw = ConsoleLogWriter.GetInstance();
-             clw.LogInfo("Test Information message");
+            // var clw = ConsoleLogWriter.GetInstance();
+            // clw.LogInfo("Test Information message");
 
-            var flw = FileLogWriter.GetInstance();
-            flw.LogInfo(@"D:\log.txt");
-            flw.Dispose();
-
+            //var flw = FileLogWriter.GetInstance();
+            //flw.LogInfo(@"D:\log.txt");
+            //flw.Dispose();
             
-             
+            var mlw = MultipleLogWriter.GetInstatance();
+            mlw.LogInfo("sdsd");
+            mlw.Dispose();
             
-
-            // flw.LogInfo("Test information message");
-
-            //var mlw = new MultipleLogWriter(new List<ILogWriter> { clw, flw });
-            //clw.LogInfo("Test info mess");
-            //flw.LogInfo("Test info mess");
-
 
 
         }

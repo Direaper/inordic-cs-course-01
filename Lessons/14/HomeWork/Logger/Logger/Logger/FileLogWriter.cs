@@ -10,7 +10,7 @@ namespace Logger
         private StreamWriter _streamWriter;
         private static FileLogWriter _fileLogWriter;
 
-        private FileLogWriter(string fileName = "log.txt")
+        private FileLogWriter(string fileName = "D:\\log.txt")
         {
 
             _streamWriter = new StreamWriter(
