@@ -38,6 +38,9 @@ namespace HomeWork22.Controllers
         [HttpPost("/api/cities/")]
         public IActionResult AddCity([FromBody] CityCreateOrUpdateModel cityCreateModel)
         {
+            if(cityCreateModel == null)
+                return BadRequest();
+
             var citiesDataStore = CitiesDataStore.GetInstance();
 
             var id = citiesDataStore.Cities.Keys.Max() + 1;
